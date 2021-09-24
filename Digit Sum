@@ -1,0 +1,53 @@
+// We define super digit of an integer n using the following rules:
+// Given an integer, we need to find the super digit of the integer n.
+// If n has only 1 digit, then its super digit is n.
+// Otherwise, the super digit of n is equal to the super digit of the sum of the digits of n.
+
+// superDigit has the following parameter(s):
+
+// string n: a string representation of an integer
+// int k: the times to concatenate n to make p.
+
+// Here n=148 and k=3 , so p=148148148.
+
+// super_digit(p) = super_digit(148148148) 
+//               = super_digit(1+4+8+1+4+8+1+4+8)
+//               = super_digit(39)
+//               = super_digit(3+9)
+//               = super_digit(12)
+//               = super_digit(1+2)
+//               = super_digit(3)
+//               = 3
+
+
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    static int digiSum(int number)
+  {
+
+    if (number / 10 == 0)
+        return number % 10;
+    return number % 10 + digiSum(number / 10);
+  }
+    public static void main(String args[]) {
+        //your code here
+        Scanner sc= new Scanner(System.in);
+        String n= sc.next();
+        int k= sc.nextInt();
+        int n_sum=0;
+        
+        for(int i=0;i<n.length();i++){
+              n_sum+=(int)(n.charAt(i)-'0');
+        
+        
+        int initial_sum=k*n_sum;
+        int final_digit=0;
+        
+        while(initial_sum/10!=0){
+            initial_sum=digiSum(initial_sum);
+        }
+        System.out.println(initial_sum);
+    }
+}

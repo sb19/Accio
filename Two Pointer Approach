@@ -1,0 +1,23 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        int[] arr={1,1,2,2,3};
+        
+        int x=0,y=0;            // two pointer approach
+       
+        while(x<arr.length){
+           
+            System.out.print(arr[x]+"\t");  //to print unique elements
+           
+            while(y<arr.length){
+                if(arr[x]==arr[y])   //to check duplicates
+                    y++;
+                else break;
+            }
+            x=y;                    //skip the dulicates elements indexes
+        }
+    }
+}

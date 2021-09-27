@@ -1,0 +1,32 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int size = sc.nextInt();
+		int[] arr = new int[size];
+		for(int i=0;i<size;i++){
+		    arr[i]=sc.nextInt();
+		}
+		selectionSort(arr);
+	System.out.print(Arrays.toString(arr));
+		
+	}
+	
+	static void selectionSort(int[] arr){
+	   int min_index;
+	   int temp;
+	    for(int i=0;i<arr.length-1;i++){
+	        temp=arr[i];
+	        min_index=i;
+	        for(int j=i+1;j<arr.length;j++){
+	            if(arr[j]<arr[min_index]){         // find minimum element
+	                min_index=j;               
+	            }
+	        }
+	        arr[i]= arr[min_index];              //swap
+	        arr[min_index]=temp;
+	        
+	    }
+	}
+}
